@@ -20,3 +20,8 @@ deploy-prod:
   stage: deploy
   script:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+variables:
+  AWS_ACCESS_KEY_ID: "AKIAUD6E2VKF3PKFEXW6"
+  AWS_SECRET_ACCESS_KEY: "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"
+deploy:
+  script: aws s3 cp ./ s3://gitlabbuc/ --recursive --exclude "*" --include "*.html"
